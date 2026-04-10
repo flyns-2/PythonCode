@@ -64,6 +64,20 @@ def choixJoueur ():
     return res
 
 def final (prixJoueur, prixAlea):
+
+        distance = abs(prixJoueur - prixAlea)
+        if prixJoueur == prixAlea:
+            return ("gagné")
+            
+        elif distance > prixAlea / 2:
+            return ("tu refroidis")
+        elif distance > prixAlea / 4:
+            return ("tiède")
+        else:
+            return("très chaud")
+
+
+"""   
     if prixJoueur == prixAlea :
         return ("C'est Gagné")
     elif prixJoueur < prixAlea :
@@ -72,7 +86,7 @@ def final (prixJoueur, prixAlea):
         return ("C'est moins") 
     else:
         return ("erreur")
-
+"""
 
 
 def boucle():
@@ -95,7 +109,7 @@ def boucle():
         res = final(choixJoueur(), p)
         compteurEssai += 1
         print (res)
-        if res == "C'est Gagné":
+        if res == "gagné":
             break
     return compteurEssai
        
@@ -108,3 +122,6 @@ while True:
     rejouer = input("Rejouer ? (o/n) : ")
     if rejouer != "o":
         break
+
+
+
